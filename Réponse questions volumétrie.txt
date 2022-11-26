@@ -1,0 +1,10 @@
+Pour prendre en compte une forte volumétrie des fichiers à traiter on peut :
+1-	Lors de l’extraction des fichiers CSV, utiliser le pyarrow engine dans la fonction read_csv de pandas. 
+On peut aussi faire une extraction en parallèle en combinant le paramètre chunksize de 
+pandas read_csv avec le package multiprocessing de python.
+On peut aussi optimiser le load_module en parallélisant l’écriture du json final en utilisant la fonction 
+Pool du module multiprocessing.
+
+
+2-	Remplacer certains listes (par exemple dans la liste des drug créer dans la fonction transform et la liste comprehension 
+contenant les journaux du graph dans le module adhoc processing ) par des generator. 
